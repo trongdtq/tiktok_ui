@@ -11,11 +11,12 @@
   --primary: #fe2c55;
   --white: #fff;
   --text-color: #333;
+  --black: #000;
 
   // Default layout
   --default-layout-header-height: 60px;
   --default-layout-width: 100%;
-  --black: #000;
+  --default-layout-horizontal-spacen: 24px;
 }
 
 html {
@@ -27,6 +28,7 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   color: var(--text-color);
+  overflow: hidden;
   //   tối ưu sao để hiển thị nhanh nhất
   text-rendering: optimizeSpeed;
 }
