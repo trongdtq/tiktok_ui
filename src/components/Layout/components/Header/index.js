@@ -2,21 +2,12 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 // icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMessage } from '@fortawesome/free-regular-svg-icons';
 import {
   faCircleXmark,
   faSpinner,
   faMagnifyingGlass,
   faEllipsisVertical,
-  faEarthAsia,
-  faCircleQuestion,
-  faMoon,
-  faHouseLaptop,
   faPlus,
-  faCoins,
-  faGear,
-  faCircleUser,
-  faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react';
 import HeadlessTippy from '@tippyjs/react/headless';
@@ -28,6 +19,7 @@ import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AcccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { Coin, Creator, Feedback, Idea, Language, Light, Logout, Message, Setting, User } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -44,20 +36,21 @@ function Header() {
 
   const MENU_ITEMS = [
     {
-      icon: <FontAwesomeIcon icon={faHouseLaptop} />,
+      icon: <Creator />,
       title: 'Công cụ dành cho nhà sáng tạo',
       children: {
         title: 'Công cụ dành cho nhà sáng tạo',
         data: [
           {
             type: 'creatorTools',
+            icon: <Idea />,
             title: 'Trung tâm nhà sáng tạo LIVE',
           },
         ],
       },
     },
     {
-      icon: <FontAwesomeIcon icon={faEarthAsia} />,
+      icon: <Language />,
       title: 'Tiếng Việt',
       children: {
         title: 'Language',
@@ -111,12 +104,12 @@ function Header() {
       },
     },
     {
-      icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+      icon: <Feedback />,
       title: 'Phản hồi và trợ giúp',
       to: './feedback',
     },
     {
-      icon: <FontAwesomeIcon icon={faMoon} />,
+      icon: <Light />,
       title: 'Chế độ tối',
       children: {
         title: 'Chế độ tối',
@@ -140,23 +133,23 @@ function Header() {
 
   const userMenu = [
     {
-      icon: <FontAwesomeIcon icon={faCircleUser} />,
+      icon: <User />,
       title: 'Xem hồ sơ',
       to: './user',
     },
     {
-      icon: <FontAwesomeIcon icon={faCoins} />,
+      icon: <Coin />,
       title: 'Nhận xu',
       to: './coin',
     },
     {
-      icon: <FontAwesomeIcon icon={faGear} />,
+      icon: <Setting />,
       title: 'Cài đặt',
       to: './setting',
     },
     ...MENU_ITEMS,
     {
-      icon: <FontAwesomeIcon icon={faSignOut} />,
+      icon: <Logout />,
       title: 'Log out',
       to: './logout',
       separate: true, // hiển thị vạch
@@ -227,7 +220,7 @@ function Header() {
 
               <Tippy content="Hội Thư" placement="bottom">
                 <button className={cx('action-btn')}>
-                  <FontAwesomeIcon icon={faMessage} />
+                  <Message />
                 </button>
               </Tippy>
             </>

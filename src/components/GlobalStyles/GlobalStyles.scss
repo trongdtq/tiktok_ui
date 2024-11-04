@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  font-family: 'IBM Plex Sans', 'sans-serif';
+  font-family: 'IBM Plex Sans', 'TikTokFont', 'sans-serif';
   font-size: 1.6rem;
   line-height: 1.5;
   color: var(--text-color);
@@ -45,6 +45,29 @@ a[href] {
   text-decoration: none;
 }
 
+// Fonts emmbeded
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Regular.woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Semibold.woff2');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/fonts/TikTokFont-Bold.woff2');
+  font-weight: 700;
+}
+@font-face {
+  font-family: TikTokDisplayFont;
+  src: url('/assets/fonts/TikTokDisplayFont-Bold.woff2');
+  font-weight: 700;
+}
 // Custom tippy tooltip
 body {
   .tippy-box {
