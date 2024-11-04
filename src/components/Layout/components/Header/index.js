@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 // icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMessage } from '@fortawesome/free-regular-svg-icons';
 import {
   faCircleXmark,
   faSpinner,
@@ -11,8 +12,15 @@ import {
   faCircleQuestion,
   faMoon,
   faHouseLaptop,
+  faPlus,
+  faCoins,
+  faGear,
+  faCircleUser,
+  faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
+import HeadlessTippy from '@tippyjs/react/headless';
+import 'tippy.js/dist/tippy.css'; // optional
 
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
@@ -25,6 +33,8 @@ const cx = classNames.bind(styles);
 
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
+
+  const currentUser = true;
 
   useEffect(() => {
     setTimeout(() => {
@@ -128,6 +138,31 @@ function Header() {
     },
   ];
 
+  const userMenu = [
+    {
+      icon: <FontAwesomeIcon icon={faCircleUser} />,
+      title: 'Xem hồ sơ',
+      to: './user',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCoins} />,
+      title: 'Nhận xu',
+      to: './coin',
+    },
+    {
+      icon: <FontAwesomeIcon icon={faGear} />,
+      title: 'Cài đặt',
+      to: './setting',
+    },
+    ...MENU_ITEMS,
+    {
+      icon: <FontAwesomeIcon icon={faSignOut} />,
+      title: 'Log out',
+      to: './logout',
+      separate: true, // hiển thị vạch
+    },
+  ];
+
   // Handle logic
   const handleMenuChange = (menuItem) => {
     switch (menuItem.type) {
@@ -153,7 +188,7 @@ function Header() {
         </div>
 
         {/* search */}
-        <Tippy
+        <HeadlessTippy
           interactive
           visible={searchResult.length > 0}
           render={(attrs) => (
@@ -181,26 +216,48 @@ function Header() {
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
           </div>
-        </Tippy>
+        </HeadlessTippy>
 
         <div className={cx('actions')}>
-          {/* <Button text> Upload</Button> */}
-          <Button
-            primary
-            onClick={() => {
-              alert('login');
-            }}
-          >
-            Log in
-          </Button>
+          {currentUser ? (
+            <>
+              <Button square leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                Tải lên
+              </Button>
 
+              <Tippy content="Hội Thư" placement="bottom">
+                <button className={cx('action-btn')}>
+                  <FontAwesomeIcon icon={faMessage} />
+                </button>
+              </Tippy>
+            </>
+          ) : (
+            <>
+              {/* Login */}
+              {/* <Button text> Upload</Button> */}
+              <Button
+                primary
+                onClick={() => {
+                  alert('login');
+                }}
+              >
+                Log in
+              </Button>
+            </>
+          )}
           {/* Menu */}
-          <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-            {
+          <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+            {currentUser ? (
+              <img
+                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/c9b27b91966166745b39845b8424fb26~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=54539&refresh_token=8d14d868def6070062b94d0f04d81895&x-expires=1730876400&x-signature=F3GDtn1PjpIY2YDpyEEXQ7J2KsI%3D&shp=a5d48078&shcp=81f88b70"
+                className={cx('user-avatar')}
+                alt="user name"
+              />
+            ) : (
               <button className={cx('menu-btn')}>
                 <FontAwesomeIcon icon={faEllipsisVertical} />
               </button>
-            }
+            )}
           </Menu>
         </div>
       </div>
