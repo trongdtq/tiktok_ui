@@ -1,4 +1,22 @@
-export const Message = ({ width = '3.2rem', height = '3.2rem', className }) => (
+export const SearchIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
+  <svg
+    className={className}
+    width={width}
+    height={height}
+    // data-e2e=""
+    viewBox="0 0 48 48"
+    fill="rgba(22, 24, 35, .34)"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M22 10C15.3726 10 10 15.3726 10 22C10 28.6274 15.3726 34 22 34C28.6274 34 34 28.6274 34 22C34 15.3726 28.6274 10 22 10ZM6 22C6 13.1634 13.1634 6 22 6C30.8366 6 38 13.1634 38 22C38 25.6974 36.7458 29.1019 34.6397 31.8113L43.3809 40.5565C43.7712 40.947 43.7712 41.5801 43.3807 41.9705L41.9665 43.3847C41.5759 43.7753 40.9426 43.7752 40.5521 43.3846L31.8113 34.6397C29.1019 36.7458 25.6974 38 22 38C13.1634 38 6 30.8366 6 22Z"
+    ></path>
+  </svg>
+);
+
+export const MessageIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
   <svg
     className={className}
     width={width}
@@ -16,7 +34,7 @@ export const Message = ({ width = '3.2rem', height = '3.2rem', className }) => (
   </svg>
 );
 
-export const User = ({ width = '2rem', height = '2rem', className }) => (
+export const UserIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
     className={className}
     width={width}
@@ -34,7 +52,7 @@ export const User = ({ width = '2rem', height = '2rem', className }) => (
   </svg>
 );
 
-export const Coin = ({ width = '2rem', height = '2rem', className }) => (
+export const CoinIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
     className={className}
     width={width}
@@ -57,7 +75,7 @@ export const Coin = ({ width = '2rem', height = '2rem', className }) => (
   </svg>
 );
 
-export const Creator = ({ width = '2rem', height = '2rem', className }) => (
+export const CreatorIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
     className={className}
     width={width}
@@ -75,7 +93,7 @@ export const Creator = ({ width = '2rem', height = '2rem', className }) => (
   </svg>
 );
 
-export const Idea = ({ width = '2rem', height = '2rem', className }) => (
+export const IdeaIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
     className={className}
     width={width}
@@ -86,8 +104,8 @@ export const Idea = ({ width = '2rem', height = '2rem', className }) => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M11.6667 13.2748C11.6667 12.6798 11.9838 12.13 12.4988 11.8321C13.9977 10.965 15 9.34859 15 7.49998C15 4.73856 12.7614 2.49998 10 2.49998C7.23859 2.49998 5.00001 4.73856 5.00001 7.49998C5.00001 9.34859 6.00237 10.965 7.50122 11.8321C8.01621 12.13 8.33334 12.6798 8.33334 13.2748V14.7916C8.33334 14.9067 8.42662 15 8.54168 15H11.4583C11.5734 15 11.6667 14.9067 11.6667 14.7916V13.2748ZM13.3333 13.2748V15.8333C13.3333 16.2935 12.9602 16.6666 12.5 16.6666H7.50001C7.03977 16.6666 6.66668 16.2935 6.66668 15.8333V13.2748C4.67401 12.1221 3.33334 9.96759 3.33334 7.49998C3.33334 3.81808 6.31811 0.833313 10 0.833313C13.6819 0.833313 16.6667 3.81808 16.6667 7.49998C16.6667 9.96759 15.326 12.1221 13.3333 13.2748Z"
     ></path>
     <path d="M7.50001 17.9166C7.50001 17.6865 7.68656 17.5 7.91668 17.5H12.0833C12.3135 17.5 12.5 17.6865 12.5 17.9166V18.75C12.5 18.9801 12.3135 19.1666 12.0833 19.1666H7.91668C7.68656 19.1666 7.50001 18.9801 7.50001 18.75V17.9166Z"></path>
@@ -99,7 +117,7 @@ export const Idea = ({ width = '2rem', height = '2rem', className }) => (
   </svg>
 );
 
-export const Setting = ({ width = '2rem', height = '2rem', className }) => (
+export const SettingIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
     className={className}
     width={width}
@@ -117,7 +135,7 @@ export const Setting = ({ width = '2rem', height = '2rem', className }) => (
   </svg>
 );
 
-export const Language = ({ width = '2rem', height = '2rem', className }) => (
+export const LanguageIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
     className={className}
     width={width}
@@ -135,7 +153,7 @@ export const Language = ({ width = '2rem', height = '2rem', className }) => (
   </svg>
 );
 
-export const Feedback = ({ width = '2rem', height = '2rem', className }) => (
+export const FeedbackIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
     className={className}
     width={width}
@@ -153,7 +171,7 @@ export const Feedback = ({ width = '2rem', height = '2rem', className }) => (
   </svg>
 );
 
-export const Light = ({ width = '2rem', height = '2rem', className }) => (
+export const LightIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
     className={className}
     width={width}
@@ -171,7 +189,7 @@ export const Light = ({ width = '2rem', height = '2rem', className }) => (
   </svg>
 );
 
-// export const Logout = ({ width = '2rem', height = '2rem', className }) = () => (
+// export const LogoutIcon = ({ width = '2rem', height = '2rem', className }) = () => (
 //   <svg
 //     className={className}
 //     width={width}
@@ -189,7 +207,7 @@ export const Light = ({ width = '2rem', height = '2rem', className }) => (
 //   </svg>
 // );
 
-export const Logout = ({ width = '2rem', height = '2rem', className }) => (
+export const LogoutIcon = ({ width = '2rem', height = '2rem', className }) => (
   <svg
     className={className}
     width={width}
@@ -202,6 +220,25 @@ export const Logout = ({ width = '2rem', height = '2rem', className }) => (
       fillRule="evenodd"
       clipRule="evenodd"
       d="M24.1716 26L7 26C6.44771 26 6 25.5523 6 25L6 23C6 22.4477 6.44771 22 7 22L24.1716 22L20.2929 18.1213C19.9024 17.7308 19.9024 17.0976 20.2929 16.7071L21.7071 15.2929C22.0976 14.9024 22.7308 14.9024 23.1213 15.2929L30.4142 22.5858C31.1953 23.3668 31.1953 24.6332 30.4142 25.4142L23.1213 32.7071C22.7308 33.0976 22.0976 33.0976 21.7071 32.7071L20.2929 31.2929C19.9024 30.9024 19.9024 30.2692 20.2929 29.8787L24.1716 26ZM36 43L27 43C26.4477 43 26 42.5523 26 42L26 40C26 39.4477 26.4477 39 27 39L36 39C37.1046 39 38 38.1046 38 37L38 11C38 9.89543 37.1046 9 36 9L27 9C26.4477 9 26 8.55228 26 8L26 6C26 5.44771 26.4477 5 27 5L36 5C39.3137 5 42 7.68629 42 11L42 37C42 40.3137 39.3137 43 36 43Z"
+    ></path>
+  </svg>
+);
+
+export const ClearIcon = ({ width = '1.6rem', height = '1.6rem', className }) => (
+  <svg
+    className={className}
+    width={width}
+    height={height}
+    // data-e2e=""
+    viewBox="0 0 48 48"
+    fill="rgba(22, 24, 35, .34)"
+    xmlns="http://www.w3.org/2000/svg"
+    // style="margin: 0px 12px;"
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M24 46C36.1503 46 46 36.1503 46 24C46 11.8497 36.1503 2 24 2C11.8497 2 2 11.8497 2 24C2 36.1503 11.8497 46 24 46ZM15.1466 30.7323L21.8788 24.0001L15.1466 17.2679C14.756 16.8774 14.756 16.2442 15.1466 15.8537L15.8537 15.1466C16.2442 14.756 16.8774 14.756 17.2679 15.1466L24.0001 21.8788L30.7323 15.1466C31.1229 14.756 31.756 14.756 32.1466 15.1466L32.8537 15.8537C33.2442 16.2442 33.2442 16.8774 32.8537 17.2679L26.1214 24.0001L32.8537 30.7323C33.2442 31.1229 33.2442 31.756 32.8537 32.1466L32.1466 32.8537C31.756 33.2442 31.1229 33.2442 30.7323 32.8537L24.0001 26.1214L17.2679 32.8537C16.8774 33.2442 16.2442 33.2442 15.8537 32.8537L15.1466 32.1466C14.756 31.756 14.756 31.1229 15.1466 30.7323Z"
     ></path>
   </svg>
 );
