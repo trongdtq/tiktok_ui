@@ -6,10 +6,11 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css'; // optional
 
-import styles from './Search.module.scss';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AcccountItem from '~/components/AccountItem';
 import { ClearIcon, SearchIcon } from '~/components/Icons';
+import { useDebounce } from '~/hooks';
+import styles from './Search.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -17,14 +18,34 @@ function Search() {
   const [searchValue, setSearchValue] = useState('');
   const [searchResult, setSearchResult] = useState([]);
   const [showResult, setShowResult] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  // delays searchValue reduce the number of useEffect
+  const debounced = useDebounce(searchValue, 700);
 
   const inputRef = useRef();
 
   useEffect(() => {
-    setTimeout(() => {
-      setSearchResult([1]);
-    }, 0);
-  }, []);
+    if (!searchValue.trim()) {
+      setSearchResult([]);
+      return;
+    }
+
+    setLoading(true);
+
+    // encodeURIComponent(searchValue): encode special characters into valid characters in the URL
+    fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
+      .then((res) => res.json())
+      .then((res) => {
+        setSearchResult(res.data);
+        setTimeout(() => {
+          setLoading(false);
+        }, 400);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, [debounced]);
 
   const handleClear = () => {
     setSearchValue('');
@@ -45,9 +66,10 @@ function Search() {
         <div className={cx('search-result')} tabIndex={'-1'} {...attrs}>
           <PopperWrapper>
             <h4 className={cx('search-title')}>Accounts</h4>
-            <AcccountItem />
-            <AcccountItem />
-            <AcccountItem />
+
+            {searchResult.map((result) => (
+              <AcccountItem key={result.id} data={result} onClick={handleHideResult} />
+            ))}
           </PopperWrapper>
         </div>
       )}
@@ -59,17 +81,22 @@ function Search() {
           value={searchValue}
           placeholder="Tìm kiếm"
           spellCheck={false}
-          onChange={(e) => setSearchValue(e.target.value)}
-          onFocus={() => setShowResult(true)}
+          onChange={(e) => setSearchValue(e.target.value.trimStart())}
+          onFocus={() => {
+            if (!searchValue) {
+              setSearchResult([]);
+            }
+            setShowResult(true);
+          }}
         />
         {/* btn clear */}
-        {!!searchValue && (
+        {!!searchValue && !loading && (
           <button className={cx('clear')} onClick={handleClear}>
             <ClearIcon />
           </button>
         )}
         {/* loading */}
-        {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
+        {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
         {/* btn search */}
         <button className={cx('search-btn')}>
           <SearchIcon className={cx('search-icon')} />
