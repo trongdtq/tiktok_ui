@@ -7,9 +7,9 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css'; // optional
 
-import * as searchSevices from '~/apiServices/searchServices';
+import * as searchSevices from '~/services/searchService';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AcccountItem from '~/components/AccountItem';
+import AccountItem from '~/components/AccountItem';
 import { ClearIcon, SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
 import styles from './Search.module.scss';
@@ -76,7 +76,7 @@ function Search() {
               <h4 className={cx('search-title')}>Accounts</h4>
 
               {searchResult.map((result) => (
-                <AcccountItem key={result.id} data={result} onClick={handleHideResult} />
+                <AccountItem key={result.id} data={result} onClick={handleHideResult} />
               ))}
             </PopperWrapper>
           </div>

@@ -7,7 +7,7 @@ import styles from './AccountItem.module.scss';
 
 const cx = classNames.bind(styles);
 
-function AcccountItem({ data, onClick }) {
+function AccountItem({ data, onClick }) {
   return (
     <Link to={`/Profile/${data.nickname}`} className={cx('wrapper')} onClick={onClick}>
       <Image className={cx('avatar')} src={data.avatar} alt={data.nickname} />
@@ -22,4 +22,4 @@ function AcccountItem({ data, onClick }) {
   );
 }
 
-export default AcccountItem;
+export default AccountItem;

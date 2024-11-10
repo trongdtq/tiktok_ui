@@ -1,4 +1,4 @@
-import * as request from '~/utils/request';
+import * as httpRequest from '~/utils/httpRequest';
 
 // API search
 export const search = async (q, type = 'less') => {
@@ -7,7 +7,7 @@ export const search = async (q, type = 'less') => {
     // encodeURIComponent(searchValue): encode special characters into valid characters in the URL
     //axios // => ~~ Fech
     // request => axios custom
-    const res = await request.get(`users/search`, {
+    const res = await httpRequest.get(`users/search`, {
       params: {
         q,
         type,
