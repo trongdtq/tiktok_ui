@@ -7,6 +7,11 @@
   width: 100%;
   height: var(--default-layout-header-height);
   box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+  background-color: var(--white);
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: flex;
 }
 
@@ -19,8 +24,9 @@
   justify-content: space-between;
 }
 
-.logo {
+.logo-link {
   min-width: 300px;
+  display: flex;
 }
 
 // Search

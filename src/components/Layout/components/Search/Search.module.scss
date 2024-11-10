@@ -17,9 +17,10 @@
   input {
     // font-weight: 400;
     font-size: 1.6rem;
+    font-family: var(--font-family);
     height: 100%;
-    background: transparent;
     color: var(--black);
+    background: transparent;
     flex: 1;
   }
 

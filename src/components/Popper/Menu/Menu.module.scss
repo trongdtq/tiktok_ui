@@ -12,6 +12,31 @@
   padding-bottom: 8px;
 }
 
+// menu list
+.menu-body {
+  overflow-y: overlay;
+  overscroll-behavior: contain;
+
+  // làm tạm
+  /* Điều chỉnh thanh cuộn */
+  &::-webkit-scrollbar {
+    height: 10px;
+    width: 8px;
+  }
+
+  /* Điều chỉnh phần cầm của thanh cuộn */
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(22, 24, 35, 0.06);
+  }
+
+  /* Điều chỉnh vùng nền của thanh cuộn */
+  &::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
 // Menu items
 .menu-item {
   width: 100%;
@@ -36,6 +61,7 @@
   height: 50px;
   margin-top: -8px;
   border-bottom: 1px solid rgb(227, 227, 228);
+  flex-shrink: 0;
 }
 
 .back-btn {

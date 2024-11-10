@@ -33,11 +33,11 @@ function Search() {
       return;
     }
 
-    setLoading(true);
+    // setLoading(true);
 
     const fetchApi = async () => {
       setLoading(true);
-
+      //  asynu(await must always come before Promise)
       const result = await searchSevices.search(debounced);
 
       setSearchResult(result);
@@ -58,52 +58,61 @@ function Search() {
     setShowResult(false);
   };
 
-  return (
-    <HeadlessTippy
-      interactive
-      visible={showResult && searchResult.length > 0}
-      render={(attrs) => (
-        // search result
-        <div className={cx('search-result')} tabIndex={'-1'} {...attrs}>
-          <PopperWrapper>
-            <h4 className={cx('search-title')}>Accounts</h4>
+  const handleChange = (e) => {
+    setSearchValue(e.target.value.trimStart());
+  };
 
-            {searchResult.map((result) => (
-              <AcccountItem key={result.id} data={result} onClick={handleHideResult} />
-            ))}
-          </PopperWrapper>
-        </div>
-      )}
-      onClickOutside={handleHideResult}
-    >
-      <div className={cx('search')}>
-        <input
-          ref={inputRef}
-          value={searchValue}
-          placeholder="Tìm kiếm"
-          spellCheck={false}
-          onChange={(e) => setSearchValue(e.target.value.trimStart())}
-          onFocus={() => {
-            if (!searchValue) {
-              setSearchResult([]);
-            }
-            setShowResult(true);
-          }}
-        />
-        {/* btn clear */}
-        {!!searchValue && !loading && (
-          <button className={cx('clear')} onClick={handleClear}>
-            <ClearIcon />
-          </button>
+  return (
+    // Using a wrapper <div> tag around the reference element solves
+    // this by creating a new parentNode context.
+    <div style={{ display: 'contents' }}>
+      <HeadlessTippy
+        interactive
+        visible={showResult && searchResult.length > 0}
+        render={(attrs) => (
+          // search result
+          <div className={cx('search-result')} tabIndex={'-1'} {...attrs}>
+            <PopperWrapper>
+              <h4 className={cx('search-title')}>Accounts</h4>
+
+              {searchResult.map((result) => (
+                <AcccountItem key={result.id} data={result} onClick={handleHideResult} />
+              ))}
+            </PopperWrapper>
+          </div>
         )}
-        {/* loading */}
-        {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-        {/* btn search */}
-        <button className={cx('search-btn')}>
-          <SearchIcon className={cx('search-icon')} />
-        </button>
-      </div>
-    </HeadlessTippy>
+        onClickOutside={handleHideResult}
+      >
+        <div className={cx('search')}>
+          <input
+            ref={inputRef}
+            value={searchValue}
+            placeholder="Tìm kiếm"
+            spellCheck={false}
+            onChange={handleChange}
+            onFocus={() => {
+              if (!searchValue) {
+                setSearchResult([]);
+              }
+              setShowResult(true);
+            }}
+          />
+          {/* btn clear */}
+          {!!searchValue && !loading && (
+            <button className={cx('clear')} onClick={handleClear}>
+              <ClearIcon />
+            </button>
+          )}
+          {/* loading */}
+          {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+          {/* btn search */}
+          <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
+            {/*onMouseDown: processing input focus event*/}
+            <SearchIcon className={cx('search-icon')} />
+          </button>
+        </div>
+      </HeadlessTippy>
+    </div>
   );
 }
 

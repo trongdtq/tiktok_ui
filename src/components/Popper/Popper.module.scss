@@ -7,5 +7,6 @@
   border-radius: 8px;
   min-height: 100px;
   max-height: min(-156px + 100vh, 760px);
-  // overflow: hidden auto;
+  display: flex;
+  flex-direction: column;
 }

@@ -2,12 +2,14 @@ import classNames from 'classnames/bind';
 // icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisVertical, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css'; // optional
 
+import routesConfig from '~/config/routes';
+import images from '~/assets/images';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
-import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
 import {
   CoinIcon,
@@ -171,9 +173,9 @@ function Header() {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         {/* logo */}
-        <div className={cx('logo')}>
+        <Link to={routesConfig.home} className={cx('logo-link')}>
           <img src={images.logo} alt="Tiktok" />
-        </div>
+        </Link>
 
         {/* search */}
         <Search />
@@ -209,7 +211,7 @@ function Header() {
           <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
             {currentUser ? (
               <Image
-                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/c9b27b91966166745b39845b8424fb26~c5_1080x1080.jpeg?lk3s=a5d48078&nonce=54539&refresh_token=8d14d868def6070062b94d0f04d81895&x-expires=1730876400&x-signature=F3GDtn1PjpIY2YDpyEEXQ7J2KsI%3D&shp=a5d48078&shcp=81f88b70"
+                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/c9b27b91966166745b39845b8424fb26~c5_100x100.jpeg?lk3s=a5d48078&nonce=50556&refresh_token=0cb4f6f3d0286bbb2efd80439dd78f63&x-expires=1731416400&x-signature=8Muv7HY0A0SG4jmA1hSiaXte44U%3D&shp=a5d48078&shcp=81f88b70"
                 className={cx('user-avatar')}
                 alt="user name"
                 fallback="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-euttp/114965057d95841c681cbf38b1718905~c5_100x100.jpeg?lk3s=a5d48078&nonce=30958&refresh_token=83cc3f6559d45abca392f444582de0c9&x-expires=1730973600&x-signature=R4II1RQ7IeXvkAMIU%2FyG7MTWrU0%3D&shp=a5d48078&shcp=b59d6b55"
