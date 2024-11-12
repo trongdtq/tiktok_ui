@@ -15,7 +15,7 @@ function Button({
   square = false,
   disable = false,
   small = false,
-  lage = false,
+  large = false,
   children,
   className,
   leftIcon,
@@ -55,7 +55,7 @@ function Button({
     disable,
     [className]: className,
     small,
-    lage,
+    large,
   });
 
   return (
@@ -68,7 +68,21 @@ function Button({
 }
 
 Button.propTypes = {
+  to: PropTypes.string,
+  href: PropTypes.string,
+  primary: PropTypes.bool,
+  outline: PropTypes.bool,
+  text: PropTypes.bool,
+  rounded: PropTypes.bool,
+  square: PropTypes.bool,
+  disable: PropTypes.bool,
+  small: PropTypes.bool,
+  large: PropTypes.bool,
   children: PropTypes.node.isRequired, // PropTypes.node.isRequired: get all values and force input
+  className: PropTypes.string,
+  leftIcon: PropTypes.node,
+  rightIcon: PropTypes.node,
+  onClick: PropTypes.func,
 };
 
 export default Button;
