@@ -55,7 +55,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
     setHistory((prev) => prev.slice(0, 1));
   };
 
-  console.log('current', current);
+  // console.log('current', current);
 
   return (
     <Tippy
@@ -65,7 +65,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
       hideOnClick={hideOnClick}
       placement="bottom-end"
       render={renderResult}
-      onHidden={() => handleResetMenu}
+      onHidden={handleResetMenu}
     >
       {children}
     </Tippy>
