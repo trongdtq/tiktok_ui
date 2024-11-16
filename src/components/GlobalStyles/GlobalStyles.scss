@@ -30,16 +30,16 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   color: var(--text-color);
-  overflow: hidden;
-  // overflow-y: overlay;
+  // overflow: hidden;
+  overflow-y: overlay;
   //   tối ưu sao để hiển thị nhanh nhất
   text-rendering: optimizeSpeed;
 }
 
 // Scrollbar CSS
 html *::-webkit-scrollbar {
-  height: 10px;
-  width: 8px;
+  // height: 10px;
+  width: 0px;
 }
 html *::-webkit-scrollbar-thumb {
   border-radius: 4px;

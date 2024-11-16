@@ -41,6 +41,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFn 
     setHistory((prev) => prev.slice(0, prev.length - 1));
   };
 
+  // Render list menu
   const renderResult = (attrs) => (
     <div className={cx('menu-list')} tabIndex={'-1'} {...attrs}>
       <PopperWrapper className={cx('menu-popper')}>
