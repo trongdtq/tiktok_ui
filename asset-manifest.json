@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/tiktok_ui/static/css/main.b6b96fe9.css",
+    "main.js": "/tiktok_ui/static/js/main.6e7fd3f7.js",
+    "static/js/453.f781e9ad.chunk.js": "/tiktok_ui/static/js/453.f781e9ad.chunk.js",
+    "static/media/TikTokDisplayFont-Bold.woff2": "/tiktok_ui/static/media/TikTokDisplayFont-Bold.b191c0620e8c9617ea10.woff2",
+    "static/media/TikTokFont-Bold.woff2": "/tiktok_ui/static/media/TikTokFont-Bold.145f211a356fce76072d.woff2",
+    "static/media/TikTokFont-Semibold.woff2": "/tiktok_ui/static/media/TikTokFont-Semibold.0a3262809350126554ad.woff2",
+    "static/media/TikTokFont-Regular.woff2": "/tiktok_ui/static/media/TikTokFont-Regular.0ca75da985ad7821cbde.woff2",
+    "static/media/logo.svg": "/tiktok_ui/static/media/logo.0b799ac0b97e5b8e7e67b7bed9d4d579.svg",
+    "index.html": "/tiktok_ui/index.html",
+    "main.b6b96fe9.css.map": "/tiktok_ui/static/css/main.b6b96fe9.css.map",
+    "main.6e7fd3f7.js.map": "/tiktok_ui/static/js/main.6e7fd3f7.js.map",
+    "453.f781e9ad.chunk.js.map": "/tiktok_ui/static/js/453.f781e9ad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6b96fe9.css",
+    "static/js/main.6e7fd3f7.js"
+  ]
+}

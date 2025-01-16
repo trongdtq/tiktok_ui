@@ -1,0 +1,18 @@
+{
+    "plugins": [
+      ["module-resolver", {
+        "alias": {
+          "~": "./src"
+        //   "test": "./test", gốc
+        //   "underscore": "lodash"
+        }
+      }]
+    ]
+  }
+
+// Ví dụ use 
+// import logo from '~/logo.svg';
+
+// - Plugin này có thể đơn giản hóa các đường dẫn require/import trong dự án của bạn. 
+//  Ví dụ, thay vì sử dụng các đường dẫn tương đối phức tạp như ../../../../utils/my-utils, 
+//  bạn có thể viết utils/my-utils.
